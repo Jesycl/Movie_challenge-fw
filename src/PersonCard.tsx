@@ -1,22 +1,30 @@
-//import React from "react";
+import React from "react";
 
-
-export interface PersonProps {
-    title:string;
-    poster_path:string;
-    release_date:string;
-
+interface Person {
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
+  
 }
 
-function PersonCard({ poster_path, title, release_date }: PersonProps) {
+interface PersonCardProps {
+  person: Person;
+}
 
-    const baseUrl = "https://image.tmdb.org/t/p/w500";
+const PersonCard: React.FC<PersonCardProps> = ({ person }) => {
+  const imageUrl = `https://image.tmdb.org/t/p/w500${person.poster_path}`;
+  
   return (
-    <section className="person-card">
-      <img src={`${baseUrl}${poster_path}`} alt="" />
-      <h4>{title}</h4>
-      <p>{release_date}</p>
-    </section>
+    
+      <div className="person-card"> 
+        <img src={imageUrl} alt={person.title} />
+        <h3>{person.title}</h3>
+        <p>Release Date: {person.release_date}</p>
+        
+      </div>
+      
   );
-}
- export default PersonCard
+};
+
+export default PersonCard;
