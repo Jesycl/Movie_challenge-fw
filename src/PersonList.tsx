@@ -1,28 +1,29 @@
-//import React from "react";
-import PersonCard, { PersonProps } from "./PersonCard";
+// PersonList.tsx
+import React from "react";
+import PersonCard from "./PersonCard";
 
-interface ApiResponse {
-    page: number;
-    results: PersonProps[];
+interface Person {
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
 }
 
 interface PersonListProps {
-    apiResponse: ApiResponse
+  people: Person[];
+  filterByGenre: (genreId: number) => void;
 }
 
-function PersonList({ apiResponse }: PersonListProps) {
+const PersonList: React.FC<PersonListProps> = ({ people }) => {
   return (
-    <section className="person-list-container">
-      {apiResponse.results.map((person) => (
-          <PersonCard
-            key={person.title}
-            title={person.title}
-            poster_path={person.poster_path}
-            release_date={person.release_date}
-          />
-        ))}
-    </section>
+    <div className="person-list">
+      {people.map((person) => (
+        <div key={person.id} className="person-card-container">
+          <PersonCard person={person} />
+        </div>
+      ))}
+    </div>
   );
-}
+};
 
 export default PersonList;

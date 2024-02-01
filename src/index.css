@@ -10,28 +10,32 @@
   }
   */
 body {
-  background-color:black;
+  background-color:white
 }
 
 
-.person-list-container {
+.person-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Crear 3 columnas iguales */
   gap: 16px; /* Espaciado entre las columnas */
   
 }
 
-.person-card {
-  text-align: center; /* Centrar contenido en cada tarjeta */
-  margin-bottom: 16px; /* Espaciado inferior entre tarjetas */
+.person-card-container{
+ width: 100%;
   
 }
-
 .person-card img {
-  width: 100%; /* Asegurar que la imagen ocupe el 100% del ancho de su contenedor */
   max-height: 300px; /* Establecer una altura máxima para las imágenes */
   object-fit: cover; /* Ajustar la imagen para cubrir completamente su contenedor manteniendo la relación de aspecto */
   border-radius: 10px;
   border:rgb(13, 168, 166) 4px double;
+ 
+}
+
+
+.person-card {
+  text-align: center;
+  color: aqua;
 }
 
